@@ -91,7 +91,7 @@ export const List: NextPage<ListProps> = ({ tasks, getFilteredData }) => {
         setErrorMsg('');
         setId(task._id);
         setName(task.name);
-        setFinishPrevisionDate(moment(task.finishPrevisionDate).format('yyyy-MM-DD'));
+        setFinishPrevisionDate(moment(task.finishPrevisionDate).utc().format('yyyy-MM-DD'));
     }
 
     return (
@@ -116,9 +116,9 @@ export const List: NextPage<ListProps> = ({ tasks, getFilteredData }) => {
                     <input type="text" placeholder="Nome da tarefa"
                         value={name} onChange={e => setName(e.target.value)} />
                     <input type="date" placeholder="Previsão de conclusão"
-                        value={finishPrevisionDate} onChange={e => setFinishPrevisionDate(e.target.value)} />
+                        value={finishPrevisionDate} onFocus={(event) => event.target.type = "date"} onBlur={(event) => event.target.type = "text"} onChange={e => setFinishPrevisionDate(e.target.value)} />
                     <input type="date" placeholder="Data de conclusão"
-                        value={finishDate} onChange={e => setFinishDate(e.target.value)} />
+                        value={finishDate} onFocus={(event) => event.target.type = "date"} onBlur={(event) => event.target.type = "text"} onChange={e => setFinishDate(e.target.value)} />
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="button col-12">

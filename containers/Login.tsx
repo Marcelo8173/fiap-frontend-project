@@ -1,13 +1,14 @@
 import { NextPage } from "next";
 import { useState } from 'react';
 import { executeRequest } from "../services/api";
+import { useRouter } from 'next/router'
 
 type LoginProps = {
     setToken(s:string):void
 }
 
 export const Login: NextPage<LoginProps> = ({setToken}) => {
-
+    const router = useRouter()
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -67,6 +68,7 @@ export const Login: NextPage<LoginProps> = ({setToken}) => {
                 </div>
 
                 <button onClick={doLogin} disabled={loading}>{loading ? '...Carregando' : 'Login'}</button>
+                <span onClick={() => router.push('register')} >Cadastre-se</span>
             </div>
         </div>
     );

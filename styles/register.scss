@@ -1,6 +1,6 @@
 @import './config.scss';
 
-.container-login{
+.register-login{
     .logo{
         width: 178px;
         display: block;
@@ -11,16 +11,16 @@
     .form{
         padding: 10px;
 
-        span {
-            color: $primaryColor;
-            &:hover {
-                opacity: 0.6;
-                cursor: pointer;
-            }
-        }
-
         p{
             color: $errorColor;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            color: $successColor;
             font-size: 16px;
             letter-spacing: 0.05em;
             text-align: center;
@@ -31,6 +31,14 @@
             display: flex;
             padding: 0px 10px;
             margin-bottom: 30px;
+
+            svg{
+                width: 26px;
+                height: auto;
+                margin-right: 15px;
+                margin-top: 3px; 
+                color: $primaryColor;
+            }
 
             img{
                 width: 18px;
@@ -62,7 +70,6 @@
             border-radius: 12px;
             font-size: 16px;
             margin-top: 15px;
-            margin-bottom: 10px;
         }
     }
 
